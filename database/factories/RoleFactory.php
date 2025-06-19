@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Role>
  */
@@ -14,27 +13,29 @@ class RoleFactory extends Factory
      *
      * @return array<string, mixed>
      */
+    public function describe($letter)
+    {
+        switch ($letter) {
+            case 'T':
+                return 'Teacher';
+                break;
+            case 'A':
+                return 'Admin';
+                break;
+            default:
+            case 'S':
+                return 'Student';
+                break;                    
+        };
+    }
 
     public function definition(): array
     {
         $roleName = fake()->randomElement(['T', 'S', 'A']);
-        $description = function($roleName){
-            switch ($roleName) {
-                case 'T':
-                    return 'Teacher';
-                    break;
-                case 'A':
-                    return 'Admin';
-                    break;
-                default:
-                case 'S':
-                    return 'Student';
-                    break;                    
-            };
-        };
+        
         return [
             'role_name' => $roleName,
-            'description' => $description,
+            'description' => RoleFactory::describe($roleName),
             'timestamps' => fake()->dateTime()
 
         ];
