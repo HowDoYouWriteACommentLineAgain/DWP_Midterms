@@ -23,7 +23,7 @@ class TeacherFactory extends Factory
             'email' => fake()->email(),
             'department' => fake()->word(),
             'birthday' => fake()->dateTime(),
-            'user_id' => User::factory()
+            'user_id' => User::inRandomOrder()->first()->id
         ];
     }
 }

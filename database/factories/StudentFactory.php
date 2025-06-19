@@ -26,7 +26,7 @@ class StudentFactory extends Factory
             'program' => fake()->word(),
             'enrollment_year' => fake()->dateTime(),
             'birthday' => fake()->dateTime(),
-            'user_id' => User::factory()
+            'user_id' => User::inRandomOrder()->first()->id
         ];
     }
 }
