@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -21,7 +22,8 @@ class TeacherFactory extends Factory
             'last_name' => fake()->lastName(),
             'email' => fake()->email(),
             'department' => fake()->word(),
-            'birthday' => fake()->dateTime()
+            'birthday' => fake()->dateTime(),
+            'user_id' => User::factory()
         ];
     }
 }

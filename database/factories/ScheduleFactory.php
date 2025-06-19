@@ -20,7 +20,7 @@ class ScheduleFactory extends Factory
         $term = fake()->randomElement([1, 2, 3]);
         return [
             'day_of_week' => fake()->dayOfWeek(),
-            'time_slot' => fake()->dayOfWeek(),
+            'time_slot' => fake()->dateTime(),
             'room' => $room,
             'term' => $term
         ];

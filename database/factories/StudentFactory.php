@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use DateTime;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -15,6 +16,8 @@ class StudentFactory extends Factory
      *
      * @return array<string, mixed>
      */
+
+
     public function definition(): array
     {
         return [
@@ -22,7 +25,8 @@ class StudentFactory extends Factory
             'last_name' => fake()->lastName(),
             'program' => fake()->word(),
             'enrollment_year' => fake()->dateTime(),
-            'birthday' => fake()->dateTime()
+            'birthday' => fake()->dateTime(),
+            'user_id' => User::factory()
         ];
     }
 }
